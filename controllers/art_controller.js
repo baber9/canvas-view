@@ -7,7 +7,7 @@ var express = require('express');
 var router = express.Router();
 
 // import model
-var egg = require('../models/eggs.js');
+var egg = require('../models/art.js');
 
 // CREATE ROUTES
 
@@ -39,7 +39,7 @@ router.post('/api/eggs', (req, res) => {
 });
 
 // put route
-router.put('/api/eggs/:id', (req, res) => {
+router.put('/api/art/:id', (req, res) => {
 
     // set devoured (used as param for update)
     var devoured = "id = " + req.params.id;
