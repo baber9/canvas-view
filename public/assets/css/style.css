@@ -1,0 +1,76 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url("../images/birthofvenus.jpg");
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
+
+#topblock {
+  background: #1f335b;
+  width: 100%;
+  height: 10%;
+  border: 2px solid #16243f;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 1.7%;
+}
+
+#mainblock {
+  color: white;
+  width: 100%;
+  height: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  text-align: center;
+}
+
+#greetingblock {
+ width: 100%;
+
+}
+
+#searchblock {
+  width: 100%;
+}
+
+#selector {
+  width: 54.5%;
+  color: #1f335b;
+  height: 30px;
+}
+
+#submitbutton {
+  width: 21%;
+  height: 45px;
+  margin-top: 3%;
+  background: #1f335b;
+  border: 2px solid #16243f;
+}
+
+#lowblock {
+  background: #1f335b;
+  color: white;
+  border: 2px solid #16243f;
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding-top: 1.7%;
+}
+
+#footertext {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#adminlink {
+  color: #213759;
+  text-align: center;
+  font-size: 10px;
+}

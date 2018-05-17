@@ -25,10 +25,14 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // import routes and give server access
+<<<<<<< HEAD
+require("./routes/artist-api.js")(app);
+=======
 var routes = require('./controllers/art_controller.js');
 var adminRoutes = require('./controllers/admin_controllers.js');
 app.use(routes);
 app.use(adminRoutes);
+>>>>>>> master
 
 // listener
 app.listen(PORT, () => {
