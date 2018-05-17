@@ -18,26 +18,31 @@ $(() => {
     });
 
 
-    // Devour egg function
+    // Submit button function
     $('#submitbutton').on('click', (evt) => {
         evt.preventDefault();
         // set id to clicked data-id
-        var artist = $('#selector').data('id');
+        var artist = $('#selector').find(':selected').attr('data-id');
         
-        // INSERT CODE TO PULL ONE ARTIST
+        // if data-id exists (option added dynamically)
+        if (artist) {
+            console.log(artist);
 
-        var devouredState = {
-            devoured: true
-        };
+            // INSERT CODE TO PULL ONE ARTIST
 
-        // update egg as devoured
-        $.ajax('/api/eggs/' + id, {
-            type: 'PUT',
-            data: devouredState
-        }).then(() => {
-            // reload page to move to devoured column
-            location.reload();
-        });
+
+        }
+        
+
+    //     // update egg as devoured
+    //     $.ajax('/api/eggs/' + id, {
+    //         type: 'PUT',
+    //         data: devouredState
+    //     }).then(() => {
+    //         // reload page to move to devoured column
+    //         location.reload();
+    //     });
+
     });
 
     // FUNCTION used to pull artist from db and add into array
@@ -50,7 +55,6 @@ $(() => {
             }
 
             return artists;
-
         });
     }
 });
