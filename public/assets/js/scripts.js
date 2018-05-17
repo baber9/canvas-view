@@ -11,13 +11,18 @@ $(() => {
         for(var i = 0; i < artists.length; i++) {
             // build option
             var newOpt = $('<option>');
+<<<<<<< HEAD
             newOpt.attr('data-id', artists[i]).text(artists[i]);
+=======
+            newOpt.attr('value', artists[i]).text(artists[i]);
+>>>>>>> master
             // append
             $('#selector').append(newOpt);
         }
     });
 
 
+<<<<<<< HEAD
     // Submit button function
     $('#submitbutton').on('click', (evt) => {
         evt.preventDefault();
@@ -33,6 +38,17 @@ $(() => {
 
         }
         
+=======
+    // // Devour egg function
+    // $('.devour').on('click', (evt) => {
+    //     // set id to clicked data-id
+    //     var id = $(evt.currentTarget).data('id');
+    //     // var devoured = $(evt.currentTarget).parent().data('devoured');
+    //     // set devoured to true in obj
+    //     var devouredState = {
+    //         devoured: true
+    //     };
+>>>>>>> master
 
     //     // update egg as devoured
     //     $.ajax('/api/eggs/' + id, {
@@ -42,8 +58,12 @@ $(() => {
     //         // reload page to move to devoured column
     //         location.reload();
     //     });
+<<<<<<< HEAD
 
     });
+=======
+    // });
+>>>>>>> master
 
     // FUNCTION used to pull artist from db and add into array
     function getArtists() {
@@ -55,6 +75,10 @@ $(() => {
             }
 
             return artists;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         });
     }
 });
