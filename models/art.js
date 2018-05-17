@@ -1,28 +1,44 @@
-// NEED TO CHANGE FROM EGGS TO ART/ARTS/ART_PIECES, etc
-
-
-// THIS file is strictly use to handle the DATA
-
-// import ORM from config/orm.js
-var orm = require('../config/orm.js');
-
-var egg = {
-    all: (cb) => {
-        orm.selectAll('eggs', (res) => {
-            cb(res);
-        });
+module.exports = (sequelize, DataTypes) => {
+    var Art = sequelize.define("Art", {
+        art_title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 149]
+            }
+        },
+        image_url: {
+            type: DataTypes.STRING,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 149]
+            }
+        },
+        museum_name: {
+            type: DataTypes.STRING,
+        },
+        state: {
+            type: DataTypes.STRING,
+        },
+        zipcode: {
+            type: DataTypes.STRING
+        },
+        city: {
+            type: DataTypes.STRING
+        },
+        phone: {
+            type: DataTypes.STRING
+        },
+        website: {
+            type: DataTypes.STRING
+        }
     },
-    create: (cols, vals, cb) => {
-        orm.insertOne('eggs', cols, vals, (res) => {
-            cb(res);
-        });
-    },
-    update: (objColVals, condition, cb) => {
-        orm.updateOne('eggs', objColVals, condition, (res) => {
-            cb(res);
-        });
-    }
-};
+    {
+        freezeTableName: true
+    });
+    return Art;
+}
 
-//export for use by controller (controllers/eggs_controller.js)
-module.exports = egg;

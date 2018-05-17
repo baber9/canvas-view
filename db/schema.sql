@@ -4,8 +4,8 @@ USE canvasview_db;
 CREATE TABLE admin
 (
 	id int NOT NULL AUTO_INCREMENT,
-	username VARCHAR(25), NOT NULL,
-    password VARCHAR(20), NOT NULL,
+	username VARCHAR(25) NOT NULL,
+    password VARCHAR(20) NOT NULL,
 	PRIMARY KEY (id)
 );
 
