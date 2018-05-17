@@ -26,11 +26,11 @@ app.set('view engine', 'handlebars');
 
 // import routes and give server access
 var routes = require('./controllers/art_controller.js');
+var adminRoutes = require('./controllers/admin_controllers.js');
 app.use(routes);
+app.use(adminRoutes);
 
 // listener
 app.listen(PORT, () => {
     console.log("App listening at localhost:" + PORT);
 });
-
-//comment

@@ -14,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",
-    "traverson": "^6.0.3",
-    "traverson-hal": "^6.0.0"
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
   }
 }

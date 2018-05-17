@@ -12,8 +12,8 @@ if (process.env.JAWSDB_URL) {
     var connection = mysql.createConnection({
         port: 3306,
         host: 'localhost',
-        user: '',                           // REMOVE BEFORE PUSH
-        password: '',                       // REMOVE BEFORE PUSH
+        user: 'root',                           // REMOVE BEFORE PUSH
+        password: 'root',                       // REMOVE BEFORE PUSH
         database: 'art' // NAME OF DATABASE!!!
     });
 };
