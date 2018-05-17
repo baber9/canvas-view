@@ -8,6 +8,12 @@ var PORT = process.env.PORT || 3000;
 // instanciate express
 var app = express();
 
+// require models
+var db = require('./models');
+
+
+// EXPRESS SETUP
+
 // Serve static content from 'public' directory
 app.use(express.static('public'));
 
@@ -24,7 +30,7 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// import routes and give server access
+// ROUTES
 require("./routes/artist-api.js")(app);
 
 // listener
