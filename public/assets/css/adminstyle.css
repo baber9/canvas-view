@@ -1,0 +1,26 @@
+body {
+  background: darkgrey;
+  height: 100%;
+}
+
+#adminlogin {
+  max-width: 450px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #1f335b;
+  border: 2px solid #16243f;
+  color: white;
+  height: 200px;
+  text-align: center;
+  margin-top: 17%;
+}
+
+#loginblock {
+  margin-top: 10%;
+}
+
+#emailpassword {
+  padding-left: 7px;
+  padding-right: 7px;
+}

@@ -10,11 +10,20 @@ if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     var connection = mysql.createConnection({
+<<<<<<< HEAD
         host: "localhost",
         user: "root",
         password: "",
         database: "canvasview_db"
       });
+=======
+        port: 3306,
+        host: 'localhost',
+        user: 'root',                           // REMOVE BEFORE PUSH
+        password: 'root',                       // REMOVE BEFORE PUSH
+        database: 'art' // NAME OF DATABASE!!!
+    });
+>>>>>>> master
 };
 
 // create connection
