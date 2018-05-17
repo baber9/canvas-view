@@ -1,16 +1,10 @@
-var orm = require('../config/orm.js');
-
-var admin = {
-    all: (cb) => {
-        orm.selectAll('admins', (res) => {
-            cb(res);
-        });
+module.exports = (sequelize, DataTypes) => {
+    var Admin = sequelize.define('Admin', {
+        name: DataTypes.STRING,
+        password: DataTypes.STRING
     },
-    create: (cols, vals, cb) => {
-        orm.insertOne('admins', cols, vals, (res) => {
-            cb(res);
-        });
-    }
-}
-
-module.exports = admin;
+    {
+        freezeTableName: true
+    });
+    return Admin;
+};

@@ -1,4 +1,5 @@
-var connection = require("../config/connection.js")
+// require models
+var db = require('../models');
 
 module.exports = function(app) {
   app.get("/api/art", function(req, res) {

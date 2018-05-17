@@ -1,5 +1,5 @@
 {
-  "name": "projectName",
+  "name": "canvas-view",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,21 +10,24 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baber9/canvas-view.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baber9/canvas-view/issues"
+  },
+  "homepage": "https://github.com/baber9/canvas-view#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-<<<<<<< HEAD
-    "mysql": "^2.15.0",
-    "traverson": "^6.0.3",
-    "traverson-hal": "^6.0.0"
-=======
-    "mysql": "^2.15.0"
->>>>>>> master
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.7"
   }
 }
