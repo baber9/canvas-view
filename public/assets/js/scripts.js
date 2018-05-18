@@ -1,16 +1,8 @@
 
 $(document).ready(() => {
 
-    // Load drop-down list box on ready
-
-    console.log('page loaded, now do stuff');
-
     // Load listbox
     loadArtists();
-
-
-
-
 
     // Submit button function
     $('#submitbutton').on('click', (evt) => {
@@ -39,11 +31,55 @@ $(document).ready(() => {
 
     });
 
+    // Admin Login Button function
+    $('#loginbutton').on('click', (evt) => {
+        evt.preventDefault();
+        var username = $('#username').val().trim();
+        var enteredPW = $('#password').val().trim();
+        
+        if (username && enteredPW) {
+            $.ajax({
+                url: '/api/admin/',
+                type: 'POST',
+                data: {
+                    name: username,
+                    password: enteredPW
+                },
+                dataType: 'json'
+                // success: function (result) {
+                //     if (result.result === 'Success') {
+                //         console.log('you are in!');
+                //     } else {
+                //         console.log('try again!');
+                //     }
+                //     // result.redirect('/');
+                // },
+                // error: (result) => {
+                //     console.log('login unsuccesful.');
+                // }
+            }).then((result) => {
+                if(result.valid) {
+                    console.log('you are in!');
+                } else {
+                    console.log('try again!');
+                    window.location.href = "/admin"
+                }
+                
+            });
+
+        } else {
+            // username/pw req
+            console.log('username & pw required');
+        }
+    });
+
     // FUNCTION used to pull artist from db and add into array
     function loadArtists() {
-        console.log('about to call api!')
+
+        // call route to pull artists from db table
         $.get("/api/artists/", function (data) {
-            console.log(data);
+
+            // data will be artists array of objs
             var artists = data;
 
             // loop through array
