@@ -15,7 +15,7 @@ var db = require('./models');
 // EXPRESS SETUP
 
 // Serve static content from 'public' directory
-app.use(express.static('public/'));
+app.use(express.static('public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
