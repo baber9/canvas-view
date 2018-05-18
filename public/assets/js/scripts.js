@@ -1,16 +1,15 @@
 
-$(() => {
+$(document).ready(() => {
 
     // Load drop-down list box on ready
-    $(document).ready(() => {
 
-        console.log('page loaded, now do stuff');
+    console.log('page loaded, now do stuff');
 
-        // Load listbox
-        loadArtists();
+    // Load listbox
+    loadArtists();
 
 
-    });
+
 
 
     // Submit button function
@@ -51,7 +50,7 @@ $(() => {
             for(var i = 0; i < artists.length; i++) {
                 // build option
                 var newOpt = $('<option>');
-                newOpt.attr('data-id', artists[i]).text(artists[i]);
+                newOpt.attr('data-id', artists[i].artist_name).text(artists[i].artist_name);
                 // append
                 $('#selector').append(newOpt);
             }

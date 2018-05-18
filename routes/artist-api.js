@@ -1,12 +1,13 @@
 // require models
 var db = require('./../models/');
 
-module.exports = function (app) {
+module.exports = function(app) {
   
-  app.get("/api/artists/", function (req, res) {
+  app.get("/api/artists", function(req, res) {
     
     db.Art.findAll({
-      include: [ artist_name ] 
+      attributes: [ 'artist_name' ],
+      group: [ 'artist_name'] 
     }).then((dbArtists) => {
       console.log('building return json file!');
       

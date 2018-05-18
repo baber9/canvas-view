@@ -16,11 +16,12 @@ if (config.use_env_variable) {
 
 fs
     .readdirSync(__dirname)
-    .filter((file) => {
+    .filter(function(file) {
         return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
     })
-    .forEach((file) => {
+    .forEach(function(file) {
         var model = sequelize['import'](path.join(__dirname, file));
+        db[model.name] = model;
     });
 
     Object.keys(db).forEach((modelName) => {
