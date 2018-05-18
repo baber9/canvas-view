@@ -15,7 +15,7 @@ var db = require('./models');
 // EXPRESS SETUP
 
 // Serve static content from 'public' directory
-app.use(express.static('public'));
+app.use(express.static('public/'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,15 +23,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// use and set handlebars
-var exphbs = require('express-handlebars');
+// // use and set handlebars
+// var exphbs = require('express-handlebars');
 
-// set views (handlebars)
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+// // set views (handlebars)
+// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+// app.set('view engine', 'handlebars');
 
 
 // ROUTES
+require('./routes/artist-html.js')(app);
 require("./routes/artist-api.js")(app);
 
 
