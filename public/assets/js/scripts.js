@@ -4,17 +4,12 @@ $(() => {
     // Load drop-down list box on ready
     $(document).ready(() => {
 
-        // call getArtists which returns array of artists names
-        var artists = getArtists();
+        console.log('page loaded, now do stuff');
 
-        // loop through array
-        for(var i = 0; i < artists.length; i++) {
-            // build option
-            var newOpt = $('<option>');
-            newOpt.attr('data-id', artists[i]).text(artists[i]);
-            // append
-            $('#selector').append(newOpt);
-        }
+        // Load listbox
+        loadArtists();
+
+
     });
 
 
@@ -46,15 +41,20 @@ $(() => {
     });
 
     // FUNCTION used to pull artist from db and add into array
-    function getArtists() {
-        $.get('/api/artists', (data) => {
-            var artists = [];
+    function loadArtists() {
+        console.log('about to call api!')
+        $.get("/api/artists/", function (data) {
+            console.log(data);
+            var artists = data;
 
-            for(var i = 0; i < data.length; i++) {
-                artists.push(data[i].name);
+            // loop through array
+            for(var i = 0; i < artists.length; i++) {
+                // build option
+                var newOpt = $('<option>');
+                newOpt.attr('data-id', artists[i]).text(artists[i]);
+                // append
+                $('#selector').append(newOpt);
             }
-
-            return artists;
         });
     }
 });
