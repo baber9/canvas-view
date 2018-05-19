@@ -12,23 +12,20 @@ $(document).ready(() => {
         
         // if data-id exists (option added dynamically)
         if (artist) {
-            console.log(artist);
+            // console.log(artist);
 
-            // INSERT CODE TO PULL ONE ARTIST
+            // call route to pull artists from db table
+            $.get("/api/artist/:artist", function (data) {
+                console.log(data);
+                // create handlebars obj
+                var hbsObject = {
+                    artist: data
+                }
 
+                data.render('index', hbsObject);
 
+            });
         }
-        
-
-    //     // update egg as devoured
-    //     $.ajax('/api/eggs/' + id, {
-    //         type: 'PUT',
-    //         data: devouredState
-    //     }).then(() => {
-    //         // reload page to move to devoured column
-    //         location.reload();
-    //     });
-
     });
 
     // Admin Login Button function
@@ -46,17 +43,7 @@ $(document).ready(() => {
                     password: enteredPW
                 },
                 dataType: 'json'
-                // success: function (result) {
-                //     if (result.result === 'Success') {
-                //         console.log('you are in!');
-                //     } else {
-                //         console.log('try again!');
-                //     }
-                //     // result.redirect('/');
-                // },
-                // error: (result) => {
-                //     console.log('login unsuccesful.');
-                // }
+
             }).then((result) => {
                 if(result.valid) {
                     console.log('you are in!');
@@ -64,7 +51,6 @@ $(document).ready(() => {
                     console.log('try again!');
                     window.location.href = "/admin"
                 }
-                
             });
 
         } else {
