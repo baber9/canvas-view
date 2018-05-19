@@ -70,8 +70,11 @@ module.exports = function(app) {
     
     // call external API for artist info with passed callback
     getApiInfo(req.params.artist, apiResults => {
+      
+      // replace new line chars with <br />'s before returning
+      apiResults.biography = apiResults.biography.replace(/\r?\n/g, "<br />");
       // console.log('2 - API Results: ', apiResults);
-
+      
       // sequelize call to find specified artist
       db.Art.findAll({
         where: {
