@@ -1,22 +1,28 @@
 html {
   height: 100%;
 }
-
 body {
+
+  width: 100%;
   background-image: url("../images/birthofvenus.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+  animation: backgroundframes 60s ease-in-out infinite;
+  
 }
 
 #topblock {
+  opacity: 1;
   background: #1f335b;
-  width: 100%;
-  height: 10%;
   border: 2px solid #16243f;
-  color: white;
+  font-size: 40px;
+  font-family: 'Playfair Display SC', serif;
+  color:white;
   text-align: center;
-  position: absolute;
-  top: 0;
-  padding-top: 1.7%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: headerframes 4s ease-in-out 0s
 }
 
 #mainblock {
@@ -26,17 +32,20 @@ body {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   text-align: center;
+  
 }
 
 #greetingblock {
- width: 100%;
-
+  width: 100%;
+  animation: greetingframes 2s ease-in-out 0s
 }
 
 #searchblock {
   width: 100%;
+  animation: headerframes 4s ease-in-out 0s
 }
 
 #selector {
@@ -62,6 +71,7 @@ body {
   position: absolute;
   bottom: 0;
   padding-top: 1.7%;
+  animation: headerframes 4s ease-in-out 0s
 }
 
 #footertext {
@@ -73,4 +83,43 @@ body {
   color: #213759;
   text-align: center;
   font-size: 10px;
+}
+
+@keyframes greetingframes{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1.0;
+
+  }
+
+}
+
+@keyframes headerframes{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1.0;
+
+  }
+}
+
+@keyframes backgroundframes{
+  0%{
+    background-image: url("../images/birthofvenus.jpg");
+  }
+  25%{
+    background-image: url("../images/image-art2.jpg");
+  }
+  50%{
+    background-image: url("../images/image-art3.jpg");
+  }
+  100%{
+    background-image: url("../images/birthofvenus.jpg");
+  }
 }
