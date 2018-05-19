@@ -65,40 +65,39 @@ module.exports = function(app) {
       
   });
 
-  // API GET specified artist
+  // API GET specified artist (pulls from db and artsy - 2 apis)
   app.get("/api/artist/:artist", (req, res) => {
-    // call external API for artist info
-    function getArtistInfo() {
-      getApiInfo ((req.params.artist), (results) => {
-          return results;
-      });
-    }
-    var apiResults = getArtistInfo();
-      
-  console.log(apiResults);
     
-    db.Art.findAll({
-      where: {
-        artist_name: req.params.artist
-      }
-    }).then((dbArtist) => {
+    // call external API for artist info with passed callback
+    getApiInfo(req.params.artist, apiResults => {
+      // console.log('2 - API Results: ', apiResults);
 
-      
-      // NEED TO FIND A WAY TO RETURN APIRESULTS (ASYNC)
-      // return artist
-      // console.log(apiInfo);
-      res.json({database: dbArtist, api: apiResults});
+      // sequelize call to find specified artist
+      db.Art.findAll({
+        where: {
+          artist_name: req.params.artist
+        }
+      }).then(dbArtist => {
+        // console.log('3 - dbArtist: ', dbArtist)
+
+        // return results of db and artsy to use in handlebars
+        res.json({database: dbArtist, api: apiResults});
+      });
     });
   });
 };
 
+// FUNCTION to call artsy api (requires call back for async)
 function getApiInfo(artistProper, cb) {
+  
   // replace spaces with '-' and make lowercase
   var artist = artistProper.split(' ').join('-').toLowerCase();
 
+  // setup traverson module
   traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
   api = traverson.from('https://api.artsy.net/api').jsonHal();
 
+  // call api.newRequest
   api.newRequest()
   .follow('artist')
   .withRequestOptions({
@@ -111,8 +110,10 @@ function getApiInfo(artistProper, cb) {
     .withTemplateParameters({ id: artist })
     .getResource((error, results) => {
       // WILL USE artist.name, artist.hometown, artist.biography, artist._links.thumbnail.href (for img src), and maybe birthday
-      // console.log(results);
-      return results;
+      // console.log('1 - getResource: ', results)
+
+      // callback with results
+      cb(results);
     });
 
 }
