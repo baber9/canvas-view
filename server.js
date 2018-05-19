@@ -23,12 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// // use and set handlebars
-// var exphbs = require('express-handlebars');
+// use and set handlebars
+var exphbs = require('express-handlebars');
 
-// // set views (handlebars)
-// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-// app.set('view engine', 'handlebars');
+// set views (handlebars)
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 
 // ROUTES
