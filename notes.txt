@@ -10,3 +10,10 @@ Make sure to ignore node and .env file
     - finish form to allow admin to post to db (data submitted by admin will need to be clean)
 
 - finish styles to make the 'look' consistent throughout the site
+
+- add logout to admin page
+
+- clean up code and comment
+
+
+- create presentation

@@ -14,4 +14,9 @@ module.exports = (app) => {
         res.sendFile(path.join(__dirname, "../public/assets/adminlogin.html"));
     });
 
+    // admin art entry form
+    app.get('/admin/entry', (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/assets/admintextentry.html"));
+    })
+
 };
