@@ -30,7 +30,6 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-
 // ROUTES
 require('./routes/artist-html.js')(app);
 require("./routes/artist-api.js")(app);

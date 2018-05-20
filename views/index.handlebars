@@ -1,0 +1,54 @@
+ <div class="container">
+        
+    <div class="page-header">
+        
+        {{!-- LOAD HEADER INFO ABOUT CURRENT ARTIST --}}
+        <img src="{{artist.api._links.thumbnail.href}}" alt="{{artist.api.name}}">
+        <h1>{{artist.api.name}}</h1>
+        <h3>{{artist.api.hometown}}</h3>
+        <h3>{{artist.api.birthday}} - {{artist.api.deathday}}</h3>
+    
+    </div>
+
+    {{!-- only load if bio available --}}
+    {{#if artist.api.biography}}
+        <div class="artist-bio section">
+            <h2>Biography</h2>
+
+            {{!-- LOAD BIO --}}
+                <p>{{{artist.api.biography}}}</p>
+
+        </div>
+        <hr />
+    {{/if}}
+
+
+    <div class="artist-portfolio section">
+        
+        <h2>Famous Art</h2>
+
+        <p>Click on the art from {{artist.api.name}} below to get a closer look, and to see where this art is on display.</p>
+
+        <div class="row">
+            
+            {{!-- INSERT EACH ART PIECE FOR ARTIST --}}
+            {{#each artist.database}}
+                <div class="col-sm-12 col-md-6">
+                    <img src="{{image_url}}" alt="{{art_title}}" class="port-img" data-m="{{museum_name}}" data-m-street="{{address}}" data-m-city="{{city}}" data-m-state="{{state}}" data-m-zip="{{zipcode}}" data-m-phone="{{phone}}" data-m-website="{{website}}">
+                </div>
+            {{/each}}
+            
+        </div>
+
+        <!-- Modal -->
+        <div id="artModal" class="modal">
+            <span class="close">×</span>
+            <img class="modal-content" id="modalImg">
+            <div id="caption"></div>
+        </div>
+
+
+    </div>
+
+        
+</div>

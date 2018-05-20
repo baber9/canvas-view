@@ -68,7 +68,7 @@ module.exports = function(app) {
   // API GET specified artist (pulls from db and artsy - 2 apis)
   app.get("/api/artist/:artist", (req, res) => {
     
-    // call external API for artist info with passed callback
+    // call external API (artsy) for artist info with passed callback
     getApiInfo(req.params.artist, apiResults => {
       
       // replace new line chars with <br />'s before returning
@@ -83,8 +83,19 @@ module.exports = function(app) {
       }).then(dbArtist => {
         // console.log('3 - dbArtist: ', dbArtist)
 
+        var hbsObject = {
+          artist: {
+            database: dbArtist,
+            api: apiResults
+          }
+        };
+
+        // EX:  hbsObject.artist.api.birthday = artist bday
+        // EX:  hbsObject.artist.database[0].art_title = title of first piece of art for artist
+
         // return results of db and artsy to use in handlebars
-        res.json({database: dbArtist, api: apiResults});
+        res.render('index', hbsObject);
+        
       });
     });
   });
