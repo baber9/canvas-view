@@ -1,1 +1,12 @@
 Make sure to ignore node and .env file
+
+5/20 - What needs to be done:
+
+- fix background and footer bar on home page
+- load database with at least 10 total artist, each having 4 records (4 art pieces)
+- add navigation to view (which allows user to go back home or maybe toggle between artists [ideal])
+- setup route for admin and finish admin login
+    - ask TAs about login sessions
+    - finish form to allow admin to post to db (data submitted by admin will need to be clean)
+
+- finish styles to make the 'look' consistent throughout the site
