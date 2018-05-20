@@ -6,25 +6,17 @@ $(document).ready(() => {
 
     // Submit button function ('/')
     $('#submitbutton').on('click', (evt) => {
-        evt.preventDefault();
+        // evt.preventDefault();
         // set id to clicked data-id
         var artist = $('#selector').find(':selected').attr('data-id');
         
         // if data-id exists (option added dynamically)
         if (artist) {
-            // console.log(artist);
+            console.log(artist);
 
             // call route to pull artists from db table
-            $.get("/api/artist/:artist", function (data) {
-                console.log(data);
-                // create handlebars obj
-                var hbsObject = {
-                    artist: data
-                }
-
-                data.render('index', hbsObject);
-
-            });
+            // $.get("/api/artist/" + artist);
+            location.assign('api/artist/'+ artist);
         }
     });
 
