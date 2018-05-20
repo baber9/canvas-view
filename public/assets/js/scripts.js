@@ -16,6 +16,8 @@ $(document).ready(() => {
 
             // call route to pull artists from db table
             // $.get("/api/artist/" + artist);
+            
+            // got to artist page - calls api/db for info
             location.assign('api/artist/'+ artist);
         }
     });
@@ -79,7 +81,7 @@ $(document).ready(() => {
 
         // only offer ticket purchase if website available
         if ($(evt.currentTarget).attr('data-m-website') != 'NA') {
-            caption.append('<h3><a href="' + $(evt.currentTarget).attr('data-m-website') + '" target="_blank">Buy Tickets Now</a></h3>');
+            caption.append('<h3><a href="' + $(evt.currentTarget).attr('data-m-website') + '" target="_blank">Plan Your Visit Today!</a></h3>');
         }
     });
 
