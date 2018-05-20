@@ -40,10 +40,11 @@ $(document).ready(() => {
 
             }).then((result) => {
                 if(result.valid) {
+                    window.location.href = '/admin/entry';
                     console.log('you are in!');
                 } else {
                     console.log('try again!');
-                    window.location.href = "/admin"
+                    window.location.href = "/admin";
                 }
             });
 
