@@ -4,27 +4,24 @@ $(document).ready(() => {
     // Load listbox
     loadArtists();
 
+    // Dropdown Toggle for Art View page button
+    $('.dropdown-toggle').dropdown();
+
     // Submit button function ('/')
     $('#submitbutton').on('click', (evt) => {
-        evt.preventDefault();
+        // evt.preventDefault();
         // set id to clicked data-id
         var artist = $('#selector').find(':selected').attr('data-id');
         
         // if data-id exists (option added dynamically)
         if (artist) {
-            // console.log(artist);
+            console.log(artist);
 
             // call route to pull artists from db table
-            $.get("/api/artist/:artist", function (data) {
-                console.log(data);
-                // create handlebars obj
-                var hbsObject = {
-                    artist: data
-                }
-
-                data.render('index', hbsObject);
-
-            });
+            // $.get("/api/artist/" + artist);
+            
+            // got to artist page - calls api/db for info
+            location.assign('api/artist/'+ artist);
         }
     });
 
@@ -46,10 +43,11 @@ $(document).ready(() => {
 
             }).then((result) => {
                 if(result.valid) {
+                    window.location.href = '/admin/entry';
                     console.log('you are in!');
                 } else {
                     console.log('try again!');
-                    window.location.href = "/admin"
+                    window.location.href = "/admin";
                 }
             });
 
@@ -87,18 +85,57 @@ $(document).ready(() => {
 
         // only offer ticket purchase if website available
         if ($(evt.currentTarget).attr('data-m-website') != 'NA') {
-            caption.append('<h3><a href="' + $(evt.currentTarget).attr('data-m-website') + '" target="_blank">Buy Tickets Now</a></h3>');
+            caption.append('<h3><a href="' + $(evt.currentTarget).attr('data-m-website') + '" target="_blank">Plan Your Visit Today!</a></h3>');
         }
     });
 
-
     // close Modal
-    
     $('.close').on('click', () => {
         $('.modal').css('display', 'none');
     });
+
+
+    // Submit new art button function
+    $('#submit-new-art-button').on('click', (evt) => {
+        evt.preventDefault();
+        var title = $('#art_title').val().trim();
+        var artist = $('#artist_name').val().trim();
+        var url = $('#image_url').val().trim();
+        var museum = $('#museum_name').val().trim();
+        var address = $('#address').val().trim();
+        var city = $('#city').val().trim();
+        var state = $('#state').val().trim();
+        var zip = $('#zipcode').val().trim();
+        var phone = $('#phone').val().trim();
+        var website = $('#website').val().trim();
+
+        if(!title || !artist || !url || !museum || !address || !city || !state || !zip || !phone || !website) {
+            return;
+        }
+
+        var newArt = {
+            art_title: title,
+            artist_name: artist,
+            image_url: url,
+            museum_name: museum,
+            address: address,
+            city: city,
+            state: state,
+            zipcode: zip,
+            phone: phone,
+            website: website
+        }
+
+        submitArt(newArt);
+
+    });
     
-    
+    // FUNCTION to submit new art (by admin)
+    function submitArt(Art) {
+        $.post('/api/admin/post/', Art, () => {
+            window.location.href='/admin/entry';
+        });
+    }
     
     // FUNCTION used to pull artist from db and add into array ('/')
     function loadArtists() {

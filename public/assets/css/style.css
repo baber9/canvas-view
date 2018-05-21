@@ -20,7 +20,6 @@ body {
   font-family: 'Playfair Display SC', serif;
   color:white;
   text-align: center;
-  padding-top: 10px;
   padding-bottom: 10px;
   animation: headerframes 4s ease-in-out 0s
 }
@@ -63,15 +62,16 @@ body {
 }
 
 #lowblock {
+  opacity: 1;
   background: #1f335b;
-  color: white;
   border: 2px solid #16243f;
-  height: 10%;
-  width: 100%;
+  color:white;
   position: absolute;
-  bottom: 0;
-  padding-top: 1.7%;
+  bottom:0;
+  text-align: center;
+  padding-top: 10px;
   animation: headerframes 4s ease-in-out 0s
+
 }
 
 #footertext {
@@ -114,10 +114,10 @@ body {
     background-image: url("../images/birthofvenus.jpg");
   }
   25%{
-    background-image: url("../images/image-art2.jpg");
+    background-image: url("../images/dutchproverbs.jpg");
   }
   50%{
-    background-image: url("../images/image-art3.jpg");
+    background-image: url("../images/stgeorgeandthedragon.jpg");
   }
   100%{
     background-image: url("../images/birthofvenus.jpg");
