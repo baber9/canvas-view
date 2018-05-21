@@ -4,7 +4,7 @@ Make sure to ignore node and .env file
 
 - fix footer bar on home page
 - load database with at least 10 total artist, each having 4 records (4 art pieces)
-- add navigation to view (which allows user to go back home or maybe toggle between artists [ideal])
+- setup navigation in art view button (api call)
 - admin page
     - ask TAs about login sessions
     - validation on new art form
