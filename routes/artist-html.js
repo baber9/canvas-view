@@ -1,4 +1,5 @@
 var path = require('path');
+var login = require('./login.js')
 
 // ROUTES
 
@@ -16,7 +17,11 @@ module.exports = (app) => {
 
     // admin art entry form
     app.get('/admin/entry', (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/assets/admintextentry.html"));
+        if (login.isLoggedIn()){
+            res.sendFile(path.join(__dirname, "../public/assets/admintextentry.html"));
+        } else {
+            res.redirect('/admin')
+        }
     })
 
 };

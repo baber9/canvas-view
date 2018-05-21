@@ -1,5 +1,6 @@
 // require models
 var db = require('./../models/');
+var login = require('./login.js')
 
 // requires for external api
 require('dotenv').config();
@@ -56,6 +57,10 @@ module.exports = function(app) {
     }).then((result) => {
       // check password sync  
       var valid = bcrypt.compareSync(req.body.password, result.password);
+
+      if (valid) {
+        login.setLoggedIn(true)
+      }
       
       res.json({valid: valid});
     });
@@ -154,3 +159,4 @@ function getApiInfo(artistProper, cb) {
     });
 
 }
+

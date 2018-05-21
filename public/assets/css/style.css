@@ -70,7 +70,8 @@ body {
   bottom:0;
   text-align: center;
   padding-top: 10px;
-  animation: headerframes 4s ease-in-out 0s
+  animation: headerframes 4s ease-in-out 0s;
+  width: 100%;
 
 }
 
