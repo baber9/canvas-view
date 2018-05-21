@@ -86,14 +86,53 @@ $(document).ready(() => {
         }
     });
 
-
     // close Modal
-    
     $('.close').on('click', () => {
         $('.modal').css('display', 'none');
     });
+
+
+    // Submit new art button function
+    $('#submit-new-art-button').on('click', (evt) => {
+        evt.preventDefault();
+        var title = $('#art_title').val().trim();
+        var artist = $('#artist_name').val().trim();
+        var url = $('#image_url').val().trim();
+        var museum = $('#museum_name').val().trim();
+        var address = $('#address').val().trim();
+        var city = $('#city').val().trim();
+        var state = $('#state').val().trim();
+        var zip = $('#zipcode').val().trim();
+        var phone = $('#phone').val().trim();
+        var website = $('#website').val().trim();
+
+        if(!title || !artist || !url || !museum || !address || !city || !state || !zip || !phone || !website) {
+            return;
+        }
+
+        var newArt = {
+            art_title: title,
+            artist_name: artist,
+            image_url: url,
+            museum_name: museum,
+            address: address,
+            city: city,
+            state: state,
+            zipcode: zip,
+            phone: phone,
+            website: website
+        }
+
+        submitArt(newArt);
+
+    });
     
-    
+    // FUNCTION to submit new art (by admin)
+    function submitArt(Art) {
+        $.post('/api/admin/post/', Art, () => {
+            window.location.href='/admin/entry';
+        });
+    }
     
     // FUNCTION used to pull artist from db and add into array ('/')
     function loadArtists() {

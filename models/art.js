@@ -2,7 +2,6 @@ module.exports = (sequelize, DataTypes) => {
     var Art = sequelize.define("Art", {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true
         },
         art_title: {
