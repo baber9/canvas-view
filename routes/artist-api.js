@@ -73,7 +73,8 @@ module.exports = function(app) {
       
       // replace new line chars with <br />'s before returning
       apiResults.biography = apiResults.biography.replace(/\r?\n/g, "<br />");
-      // console.log('2 - API Results: ', apiResults);
+
+      console.log('2 - API Results: ', apiResults);
       
       // sequelize call to find specified artist
       db.Art.findAll({
@@ -83,6 +84,8 @@ module.exports = function(app) {
       }).then(dbArtist => {
         // console.log('3 - dbArtist: ', dbArtist)
 
+
+        
         var hbsObject = {
           artist: {
             database: dbArtist,
@@ -99,6 +102,26 @@ module.exports = function(app) {
       });
     });
   });
+
+  // API POST to add record to db
+  app.post("/api/admin/post", (req,res) => {
+    db.Art.create({
+      art_title: req.body.art_title,
+      artist_name: req.body.artist_name,
+      image_url: req.body.image_url,
+      museum_name: req.body.museum_name,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zipcode: req.body.zipcode,
+      phone: req.body.phone,
+      website: req.body.website
+    }).then(result => {
+      res.json(result);
+    });
+  });
+
+
 };
 
 // FUNCTION to call artsy api (requires call back for async)
