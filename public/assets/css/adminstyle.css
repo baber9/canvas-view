@@ -1,7 +1,7 @@
-body {
+/* body {
   background: darkgrey;
   height: 100%;
-}
+} */
 
 #adminlogin {
   max-width: 450px;
@@ -23,4 +23,17 @@ body {
 #emailpassword {
   padding-left: 7px;
   padding-right: 7px;
+}
+
+#topblock {
+  opacity: 1;
+  background: #1f335b;
+  border: 2px solid #16243f;
+  font-size: 40px;
+  font-family: 'Playfair Display SC', serif;
+  color:white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: headerframes 4s ease-in-out 0s
 }

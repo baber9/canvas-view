@@ -4,6 +4,9 @@ $(document).ready(() => {
     // Load listbox
     loadArtists();
 
+    // Dropdown Toggle for Art View page button
+    $('.dropdown-toggle').dropdown();
+
     // Submit button function ('/')
     $('#submitbutton').on('click', (evt) => {
         // evt.preventDefault();
