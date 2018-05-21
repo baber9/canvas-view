@@ -20,7 +20,7 @@ CREATE TABLE art
     state VARCHAR(25),
     zipcode VARCHAR(7),
     city VARCHAR (50),
-    phone VARCHAR(25),
+    phone VARCHAR(50),
     website VARCHAR(155),
 	PRIMARY KEY (id)
 );
