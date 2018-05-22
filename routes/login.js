@@ -1,3 +1,5 @@
+// Authentication Module for admin
+
 let authed = false
 
 module.exports = {
