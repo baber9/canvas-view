@@ -1,10 +1,9 @@
 body {
-  background-image: url("../images/canvas.png");
+  background: tan;
 }
 
 div.page-header {
     text-align: center;
-    border-color: #1f335b;
 }
 
 div.page-header>img {
@@ -134,9 +133,8 @@ img.port-img:hover {
 
   div.btn-group {
     float: left;
-    position: relative;
-    display: inline-block;
-    margin: 30px;
+    margin-top: 30px;
+    position: absolute;
   }
 
   div.btn-group>button {
@@ -153,10 +151,22 @@ img.port-img:hover {
       border: 2px solid #16243f;
   }
 
-  p.artist-bio {
-      font-size: 18;
-  }
 
-  hr {
-      border-color: #1f335b;
+
+  #lowblock {
+    opacity: 1;
+    background: #1f335b;
+    border: 2px solid #16243f;
+    color:white;
+    position: absolute;
+    text-align: center;
+    padding-top: 10px;
+    animation: headerframes 4s ease-in-out 0s;
+    width: 100%;
+  
+  }
+  
+  #footertext {
+    text-align: center;
+    padding-bottom: 10px;
   }

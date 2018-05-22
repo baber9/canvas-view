@@ -130,11 +130,6 @@ $(document).ready(() => {
 
     });
 
-    $('#home-button').on('click', evt => {
-        evt.preventDefault();
-        window.location.href='/';
-    });
-
     $('#admin-logout').on('click', (evt) => {
         evt.preventDefault();
         window.location.href='/';
@@ -142,8 +137,9 @@ $(document).ready(() => {
     
     // FUNCTION to submit new art (by admin)
     function submitArt(Art) {
-        $.post('/api/admin/post/', Art, () => {
+        $.post('/api/admin/post/', Art, (result) => {
             window.location.href='/admin/entry';
+            alert(`${Art.art_title} added!`);
         });
     }
     

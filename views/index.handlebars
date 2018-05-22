@@ -1,18 +1,20 @@
  
- 
+<div class="wrapper"></div> 
 <div class="row">
     <div class="col-lg-12" id="topblock">
-
+        <a href="/" style="color:white; text-decoration: none;">
         <header>Canvas View</header>
+        </a>
     </div>
 </div>
  
  <div class="container">
 
-        
+             
         {{!-- Single Button Nav --}}
         <div class="btn-group">
-            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artists <span class="caret"></span>
+            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other Artists <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -20,8 +22,8 @@
                 <li><a href="#">And another</a></li>
             </ul>
         </div>
-        <button type="button" id="home-button" class="btn btn-primary btn-lg">Home</button>
-    
+
+        
     <div class="page-header">
         
         {{!-- LOAD HEADER INFO ABOUT CURRENT ARTIST --}}
@@ -32,15 +34,13 @@
     
     </div>
 
-
-
     {{!-- only load if bio available --}}
     {{#if artist.api.biography}}
         <div class="artist-bio section">
             <h2>Biography</h2>
 
             {{!-- LOAD BIO --}}
-                <p class="artist-bio">{{{artist.api.biography}}}</p>
+                <p>{{{artist.api.biography}}}</p>
 
         </div>
         <hr />
@@ -76,3 +76,13 @@
 
         
 </div>
+</div>
+<footer class="footer">
+  <div class="col-lg-12" id="lowblock">
+    <div id="footertext">
+      Copyright Canvas View 2018
+    </div>
+    <div id="adminlink">
+      <a href="/admin">admin</a>
+    </div>
+</footer>

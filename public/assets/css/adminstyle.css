@@ -1,5 +1,6 @@
 body {
-  background-image: url("../images/canvas.png");
+  background: tan;
+  height: 100%;
 }
 
 #adminlogin {

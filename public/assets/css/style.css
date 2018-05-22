@@ -21,7 +21,12 @@ body {
   color:white;
   text-align: center;
   padding-bottom: 10px;
-  animation: headerframes 4s ease-in-out 0s
+  animation: headerframes 4s ease-in-out 0s;
+  text-shadow:
+  -.05px -.05px 0 #000,
+  .05px .05px 0 #000,
+  .05px .05px 0 #000,
+  .05px .05px 0 #000;
 }
 
 #mainblock {
@@ -39,8 +44,16 @@ body {
 
 #greetingblock {
   width: 100%;
-  animation: greetingframes 2s ease-in-out 0s
+  color: #f6f7ff;
+  animation: greetingframes 2s ease-in-out 0s;
+  text-shadow:
+  -.05px -.05px 0 #000,
+  .05px .05px 0 #000,
+  .05px .05px 0 #000,
+  .05px .05px 0 #000;
 }
+  
+
 
 #searchblock {
   width: 100%;
