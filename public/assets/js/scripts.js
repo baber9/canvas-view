@@ -31,7 +31,9 @@ $(document).ready(() => {
         var username = $('#username').val().trim();
         var enteredPW = $('#password').val().trim();
         
-        if (username && enteredPW) {
+        if (!username || !enteredPW) {
+            $('#no-password-alert').show();
+        } else {
             $.ajax({
                 url: '/api/admin/',
                 type: 'POST',
@@ -42,18 +44,12 @@ $(document).ready(() => {
                 dataType: 'json'
 
             }).then((result) => {
-                if(result.valid) {
+                if(result.valid === true) {
                     window.location.href = '/admin/entry';
-                    console.log('you are in!');
                 } else {
-                    console.log('try again!');
-                    window.location.href = "/admin";
+                    $('#wrong-password-alert').show();
                 }
             });
-
-        } else {
-            // username/pw req
-            console.log('username & pw required');
         }
     });
 
@@ -109,7 +105,8 @@ $(document).ready(() => {
         var phone = $('#phone').val().trim();
         var website = $('#website').val().trim();
 
-        if(!title || !artist || !url || !museum || !address || !city || !state || !zip || !phone || !website) {
+        if (!title || !artist || !url || !museum || !address || !city || !state || !zip || !phone || !website) {
+            $('#incomplete-alert').css('display', 'inherit');
             return;
         }
 
@@ -137,7 +134,7 @@ $(document).ready(() => {
 
     $('#admin-logout').on('click', (evt) => {
         evt.preventDefault();
-        window.location.href='/';
+        window.location.href='/admin';
     });
     
     // FUNCTION to submit new art (by admin)
@@ -148,7 +145,7 @@ $(document).ready(() => {
         });
     }
     
-    // FUNCTION used to pull artist from db and add into array ('/')
+    // FUNCTION used to pull artist from db and display ('/') & (/api/artist/:artist_name)
     function loadArtists() {
 
         // call route to pull artists from db table
@@ -160,27 +157,30 @@ $(document).ready(() => {
             // loop through array
             for(var i = 0; i < artists.length; i++) {
                     
-                // build option (for index.html)
-                    var newOpt = $('<option>');
-                    newOpt.attr('data-id', artists[i].artist_name).text(artists[i].artist_name);
-                    // append
-                    $('#selector').append(newOpt);
+                // FOR INDEX.HTML USE
+                // build option (for '/')
+                var newOpt = $('<option>');
+                newOpt.attr('data-id', artists[i].artist_name).text(artists[i].artist_name);
+                // append
+                $('#selector').append(newOpt);
 
-                    // artist current shown 
-                    var currentArtist = $(".artview-artist-name").text();
 
-                    // Do not include artist currently shown on page
-                    if (currentArtist != artists[i].artist_name) {
-                        
-                        // build li with anchor for art view (hndlbrs view)
-                        var newLi = $('<li>');
-                        newLi.attr('data-id', artists[i].artist_name);
-                        var newLink = $('<a>');
-                        newLink.attr("href", "/api/artist/" + artists[i].artist_name).text(artists[i].artist_name);
-                        newLi.append(newLink);
-                        // append to page
-                        $('#dropdown-button').append(newLi);
-                    }
+                // FOR /api/artist/:artist_name USE
+                // artist current shown 
+                var currentArtist = $(".artview-artist-name").text();
+
+                // Do not include artist currently shown on page
+                if (currentArtist != artists[i].artist_name) {
+                    
+                    // build li with anchor for art view (hndlbrs view)
+                    var newLi = $('<li>');
+                    newLi.attr('data-id', artists[i].artist_name);
+                    var newLink = $('<a>');
+                    newLink.attr("href", "/api/artist/" + artists[i].artist_name).text(artists[i].artist_name);
+                    newLi.append(newLink);
+                    // append to page
+                    $('#dropdown-button').append(newLi);
+                }
             }
         });
     }

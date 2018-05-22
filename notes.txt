@@ -3,7 +3,6 @@ Make sure to ignore node and .env file
 5/20 - What needs to be done:
 
 
-- setup navigation in art view button (api call)
 - validation on new art form
 - add functionality to edit record (art) in db - FUTURE
 

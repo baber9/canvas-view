@@ -32,22 +32,22 @@ module.exports = function(app) {
 
   // API POST call to store hashed admin pw
   // NOT IN USE (only used to create admin hash)
-  app.post("/api/admins", (req, res) => {
-    var password = '';
-    var username = 'admin';
-    // hash password
-    bcrypt.genSalt(saltRounds, (err, salt) => {
-      bcrypt.hash(password, salt, (err, hash) => {
-        // store hash in db
-        db.Admin.create({
-          name: username,
-          password: hash
-        }).then((result) => {
-          console.log('New Admin Added: ' + username);
-        });
-      });
-    });
-  });
+  // app.post("/api/admins", (req, res) => {
+  //   var password = '';
+  //   var username = 'admin';
+  //   // hash password
+  //   bcrypt.genSalt(saltRounds, (err, salt) => {
+  //     bcrypt.hash(password, salt, (err, hash) => {
+  //       // store hash in db
+  //       db.Admin.create({
+  //         name: username,
+  //         password: hash
+  //       }).then((result) => {
+  //         console.log('New Admin Added: ' + username);
+  //       });
+  //     });
+  //   });
+  // });
 
   // API POST to compare hashed pw for admin login
   app.post("/api/admin/", (req,res) => {
@@ -56,14 +56,21 @@ module.exports = function(app) {
         name: req.body.name
       }
     }).then((result) => {
-      // check password sync  
-      var valid = bcrypt.compareSync(req.body.password, result.password);
 
-      if (valid) {
-        login.setLoggedIn(true)
+      if (result != null) {
+        // check password sync  
+        var valid = bcrypt.compareSync(req.body.password, result.password);
+
+        if (valid) {
+          login.setLoggedIn(true)
+        }
+
+        res.json({valid: valid});
+      
+      } else {
+        res.json({valid: false});
       }
       
-      res.json({valid: valid});
     });
         
       // console.log(outcome);
