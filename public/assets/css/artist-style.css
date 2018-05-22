@@ -141,6 +141,7 @@ img.port-img:hover {
 
   div.btn-group>button {
       background-color: #1f335b;
+      border: 2px solid #16243f;
   }
 
   button#home-button {
@@ -149,6 +150,7 @@ img.port-img:hover {
       display: inline-block;
       margin: 30px;
       background-color: #1f335b;
+      border: 2px solid #16243f;
   }
 
   p.artist-bio {

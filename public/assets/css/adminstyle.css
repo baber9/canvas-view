@@ -10,9 +10,9 @@ body {
   background: #1f335b;
   border: 2px solid #16243f;
   color: white;
-  height: 200px;
+  height: 300px;
   text-align: center;
-  margin-top: 17%;
+  margin-top: 10%;
 }
 
 #loginblock {
@@ -20,8 +20,7 @@ body {
 }
 
 #emailpassword {
-  padding-left: 7px;
-  padding-right: 7px;
+  padding: 8px;
 }
 
 #topblock {
@@ -34,5 +33,30 @@ body {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  animation: headerframes 4s ease-in-out 0s
+  animation: headerframes 4s ease-in-out 0s;
+  width: 100%;
+}
+
+#lowblock {
+  opacity: 1;
+  background: #1f335b;
+  border: 2px solid #16243f;
+  color:white;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  padding-top: 10px;
+  animation: headerframes 4s ease-in-out 0s;
+  width: 100%;
+}
+
+#footertext {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#adminlink {
+  color: #213759;
+  text-align: center;
+  font-size: 10px;
 }
