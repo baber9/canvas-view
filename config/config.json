@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "",
+      "password": "root",
       "database": "canvasview_db",
       "host": "localhost",
       "dialect": "mysql"

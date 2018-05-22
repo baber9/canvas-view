@@ -4,6 +4,7 @@ body {
 
 div.page-header {
     text-align: center;
+    border-color: #1f335b;
 }
 
 div.page-header>img {
@@ -34,6 +35,10 @@ img.port-img {
 
 img.port-img:hover {
     opacity: 0.8;
+}
+
+hr {
+    border-color: #1f335b;
 }
 
 /* ---------------- MODAL STYLES ---------------- */
@@ -133,8 +138,9 @@ img.port-img:hover {
 
   div.btn-group {
     float: left;
-    margin-top: 30px;
-    position: absolute;
+    position: relative;
+    display: inline-block;
+    margin: 30px;
   }
 
   div.btn-group>button {
@@ -150,6 +156,11 @@ img.port-img:hover {
       background-color: #1f335b;
       border: 2px solid #16243f;
   }
+
+  p.artist-bio {
+      font-size: 18;
+  }
+
 
 
 
