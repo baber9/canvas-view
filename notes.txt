@@ -4,16 +4,10 @@ Make sure to ignore node and .env file
 
 
 - setup navigation in art view button (api call)
-- admin page
-    - ask TAs about login sessions
-    - Authguards
-     - on routes add authguard trigger or flag (is logged in)
-     - if then test for login (redirect to entry or login)
-    - validation on new art form
-- add functionality to edit record (art) in db
-- add home button oppposite artist selection button on art view
+- validation on new art form
+- add functionality to edit record (art) in db - FUTURE
 
-- finish styles to make the 'look' consistent throughout the site
+
 
 - add logout to admin page
 

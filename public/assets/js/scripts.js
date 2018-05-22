@@ -130,6 +130,11 @@ $(document).ready(() => {
 
     });
 
+    $('#home-button').on('click', evt => {
+        evt.preventDefault();
+        window.location.href='/';
+    });
+
     $('#admin-logout').on('click', (evt) => {
         evt.preventDefault();
         window.location.href='/';
