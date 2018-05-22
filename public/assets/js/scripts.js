@@ -159,11 +159,28 @@ $(document).ready(() => {
 
             // loop through array
             for(var i = 0; i < artists.length; i++) {
-                // build option
-                var newOpt = $('<option>');
-                newOpt.attr('data-id', artists[i].artist_name).text(artists[i].artist_name);
-                // append
-                $('#selector').append(newOpt);
+                    
+                // build option (for index.html)
+                    var newOpt = $('<option>');
+                    newOpt.attr('data-id', artists[i].artist_name).text(artists[i].artist_name);
+                    // append
+                    $('#selector').append(newOpt);
+
+                    // artist current shown 
+                    var currentArtist = $(".artview-artist-name").text();
+
+                    // Do not include artist currently shown on page
+                    if (currentArtist != artists[i].artist_name) {
+                        
+                        // build li with anchor for art view (hndlbrs view)
+                        var newLi = $('<li>');
+                        newLi.attr('data-id', artists[i].artist_name);
+                        var newLink = $('<a>');
+                        newLink.attr("href", "/api/artist/" + artists[i].artist_name).text(artists[i].artist_name);
+                        newLi.append(newLink);
+                        // append to page
+                        $('#dropdown-button').append(newLi);
+                    }
             }
         });
     }
