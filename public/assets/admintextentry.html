@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-lg-12" id="topblock">
       <header>
-      Canvas View
+      <a href="/" style="color:white; text-decoration: none;">Canvas View</a>
       </header>
     </div>
   </div>
@@ -31,7 +31,12 @@
       <p>Use this form to enter new art piece information into the database.  All fields required.  If any information is not availabe, use 'NA'.  Please make sure the data is clean and correct before submitting.</p>
       <p><button type="button" id="admin-logout" class="btn btn-danger btn-lg">Logout</button></p>
     </div>
-
+    <div class="alert alert-danger alert-dismissible" role="alert" id="incomplete-alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>New Art Not Submitted</strong>.  Please make sure all fields are completed before submitting.
+    </div>
     <form id="adminstuff" class="form-horizontal">
       <div class="form-group">
         <label class="col-sm-2 control-label" for="art_title">Title</label>
