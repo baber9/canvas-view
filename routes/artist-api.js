@@ -31,6 +31,7 @@ module.exports = function(app) {
 
 
   // API POST call to store hashed admin pw
+  // NOT IN USE (only used to create admin hash)
   app.post("/api/admins", (req, res) => {
     var password = '';
     var username = 'admin';
@@ -79,7 +80,7 @@ module.exports = function(app) {
       // replace new line chars with <br />'s before returning
       apiResults.biography = apiResults.biography.replace(/\r?\n/g, "<br />");
 
-      console.log('2 - API Results: ', apiResults);
+      // console.log('2 - API Results: ', apiResults);
       
       // sequelize call to find specified artist
       db.Art.findAll({
