@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/baber9/canvas-view/issues"
   },
+  "homepage": "https://github.com/baber9/canvas-view#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
