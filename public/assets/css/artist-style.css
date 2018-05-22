@@ -137,10 +137,10 @@ animation: headerframes 4s ease-in-out 0s
 }
 
 div.btn-group {
-float: left;
-position: relative;
-display: inline-block;
-margin: 30px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin: 30px;
 }
 
 div.btn-group>button {
@@ -161,20 +161,23 @@ p.artist-bio {
     font-size: 18;
 }
 
-#lowblock {
-opacity: 1;
-background: #1f335b;
-border: 2px solid #16243f;
-color:white;
-position: absolute;
-text-align: center;
-padding-top: 10px;
-animation: headerframes 4s ease-in-out 0s;
-width: 100%;
+p.artist-instruct {
+    font-size: 18;
+}
 
+#lowblock {
+    opacity: 1;
+    background: #1f335b;
+    border: 2px solid #16243f;
+    color:white;
+    position: absolute;
+    text-align: center;
+    padding-top: 10px;
+    animation: headerframes 4s ease-in-out 0s;
+    width: 100%;
 }
 
 #footertext {
-text-align: center;
-padding-bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
 }
