@@ -139,8 +139,17 @@ img.port-img:hover {
 
   div.btn-group>button {
       background-color: #1f335b;
+      border: 2px solid #16243f;
   }
 
+  button#home-button {
+      float: right;
+      position: relative;
+      display: inline-block;
+      margin: 30px;
+      background-color: #1f335b;
+      border: 2px solid #16243f;
+  }
 
 
 
