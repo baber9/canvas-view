@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Canvas View - Admin</title>
+    <title>Canvas View - Admin Entry</title>
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,12 +31,18 @@
       <p>Use this form to enter new art piece information into the database.  All fields required.  If any information is not availabe, use 'NA'.  Please make sure the data is clean and correct before submitting.</p>
       <p><button type="button" id="admin-logout" class="btn btn-danger btn-lg">Logout</button></p>
     </div>
+
+    <!-- Hidden Alert for form completion -->
+
     <div class="alert alert-danger alert-dismissible" role="alert" id="incomplete-alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <strong>New Art Not Submitted</strong>.  Please make sure all fields are completed before submitting.
     </div>
+
+    <!-- End hidden alert -->
+
     <form id="adminstuff" class="form-horizontal">
       <div class="form-group">
         <label class="col-sm-2 control-label" for="art_title">Title</label>

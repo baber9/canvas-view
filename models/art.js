@@ -1,3 +1,5 @@
+// Art work sequelize model
+
 module.exports = (sequelize, DataTypes) => {
     var Art = sequelize.define("Art", {
         id: {

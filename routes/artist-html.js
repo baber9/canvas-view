@@ -18,11 +18,12 @@ module.exports = (app) => {
 
     // admin art entry form
     app.get('/admin/entry', (req, res) => {
+
+        // check login.js to see if user is logged in when trying to access admin/entry
         if (login.isLoggedIn()){
             res.sendFile(path.join(__dirname, "../public/assets/admintextentry.html"));
         } else {
             res.redirect('/admin')
         }
     })
-
 };

@@ -34,8 +34,6 @@ app.set('view engine', 'handlebars');
 require('./routes/artist-html.js')(app);
 require("./routes/artist-api.js")(app);
 
-
-
 // listener
 db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {

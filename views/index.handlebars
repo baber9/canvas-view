@@ -1,5 +1,4 @@
  
-<div class="wrapper"></div> 
 <div class="row">
     <div class="col-lg-12" id="topblock">
         <a href="/" style="color:white; text-decoration: none;">
@@ -8,19 +7,18 @@
     </div>
 </div>
  
- <div class="container">
-
+<div class="container">
              
-        {{!-- Single Button Nav --}}
-        <div class="btn-group" id="dropdown-group">
-            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Artists <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" id="dropdown-button">
-                {{!-- JQuery from script.js will load li's --}}
-            </ul>
-        </div>
-        <button type="button" id="home-button" class="btn btn-primary btn-lg">Home</button>
+    {{!-- Single Button Nav --}}
+    <div class="btn-group" id="dropdown-group">
+        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Artists <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="dropdown-button">
+            {{!-- JQuery from script.js will load li's --}}
+        </ul>
+    </div>
+    <button type="button" id="home-button" class="btn btn-primary btn-lg">Home</button>
 
         
     <div class="page-header">
@@ -35,30 +33,28 @@
 
     {{!-- only load if bio available --}}
     {{#if artist.api.biography}}
-        <div class="artist-bio section">
-            <h2>Biography</h2>
+    <div class="artist-bio section">
+        <h2>Biography</h2>
 
-            {{!-- LOAD BIO --}}
-                <p class="artist-bio">{{{artist.api.biography}}}</p>
+        {{!-- LOAD BIO --}}
+        <p class="artist-bio">{{{artist.api.biography}}}</p>
 
-        </div>
-        <hr />
+    </div>
+    <hr />
     {{/if}}
-
 
     <div class="artist-portfolio section">
         
         <h2>Famous Art</h2>
-
         <p class="artist-instruct">Click on the art from {{artist.api.name}} below to get a closer look, and to see where this art is on display.</p>
 
         <div class="row">
             
             {{!-- INSERT EACH ART PIECE FOR ARTIST --}}
             {{#each artist.database}}
-                <div class="col-sm-12 col-md-6">
-                    <img src="{{image_url}}" alt="{{art_title}}" class="port-img" data-m="{{museum_name}}" data-m-street="{{address}}" data-m-city="{{city}}" data-m-state="{{state}}" data-m-zip="{{zipcode}}" data-m-phone="{{phone}}" data-m-website="{{website}}">
-                </div>
+            <div class="col-sm-12 col-md-6">
+                <img src="{{image_url}}" alt="{{art_title}}" class="port-img" data-m="{{museum_name}}" data-m-street="{{address}}" data-m-city="{{city}}" data-m-state="{{state}}" data-m-zip="{{zipcode}}" data-m-phone="{{phone}}" data-m-website="{{website}}">
+            </div>
             {{/each}}
             
         </div>
@@ -69,19 +65,16 @@
             <img class="modal-content" id="modalImg">
             <div id="caption"></div>
         </div>
-
-
     </div>
+</div>
 
-        
-</div>
-</div>
 <footer class="footer">
-  <div class="col-lg-12" id="lowblock">
-    <div id="footertext">
-      Copyright Canvas View 2018
-    </div>
-    <div id="adminlink">
-      <a href="/admin">admin</a>
+    <div class="col-lg-12" id="lowblock">
+        <div id="footertext">
+        Copyright Canvas View 2018
+        </div>
+        <div id="adminlink">
+            <a href="/admin">admin</a>
+        </div>
     </div>
 </footer>

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Administrator Login</title>
+    <title>Canvas View - Admin Login</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
@@ -37,6 +37,8 @@
           </button>
         </form>
 
+        <!-- Hidden Alerts - start as display: none -->
+
         <div class="alert alert-danger alert-dismissible" role="alert" id="wrong-password-alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -45,11 +47,13 @@
         </div>
 
         <div class="alert alert-danger alert-dismissible" role="alert" id="no-password-alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Username and Password Required</strong>
-          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Username and Password Required</strong>
+        </div>
+
+        <!-- End hidden alerts -->
 
       </div>
     </div>

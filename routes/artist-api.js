@@ -8,11 +8,10 @@ var traverson = require('traverson'),
     JsonHalAdapter = require('traverson-hal'),
     xappToken = process.env.xappToken;
 
-
-
 // setup bcrypt (for password hashing and compare)
 var bcrypt = require('bcrypt');
 var saltRounds = 10;
+
 
 module.exports = function(app) {
   
@@ -28,7 +27,6 @@ module.exports = function(app) {
       res.json(dbArtists);
     });
   });
-
 
   // API POST call to store hashed admin pw
   // NOT IN USE (only used to create admin hash)
@@ -57,25 +55,26 @@ module.exports = function(app) {
       }
     }).then((result) => {
 
+      // if user found
       if (result != null) {
         // check password sync  
         var valid = bcrypt.compareSync(req.body.password, result.password);
 
+        // set login user as logged in using login.js
         if (valid) {
           login.setLoggedIn(true)
         }
 
+        // return valid: true
         res.json({valid: valid});
       
+      // else, user not found
       } else {
+        
+        // return false
         res.json({valid: false});
       }
-      
     });
-        
-      // console.log(outcome);
-      // res.send(valid);
-      
   });
 
   // API GET specified artist (pulls from db and artsy - 2 apis)
@@ -95,10 +94,10 @@ module.exports = function(app) {
           artist_name: req.params.artist
         }
       }).then(dbArtist => {
-        // console.log('3 - dbArtist: ', dbArtist)
-
-
         
+        // console.log('3 - dbArtist: ', dbArtist)
+        
+        // create new hbsObj to return to view
         var hbsObject = {
           artist: {
             database: dbArtist,
@@ -116,7 +115,7 @@ module.exports = function(app) {
     });
   });
 
-  // API POST to add record to db
+  // API POST to add record (art piece) to db
   app.post("/api/admin/post", (req,res) => {
     db.Art.create({
       art_title: req.body.art_title,
@@ -133,14 +132,12 @@ module.exports = function(app) {
       res.json(result);
     });
   });
-
-
 };
 
 // FUNCTION to call artsy api (requires call back for async)
 function getApiInfo(artistProper, cb) {
   
-  // replace spaces with '-' and make lowercase
+  // replace spaces with '-' and make lowercase (required for search)
   var artist = artistProper.split(' ').join('-').toLowerCase();
 
   // setup traverson module
@@ -159,12 +156,12 @@ function getApiInfo(artistProper, cb) {
 
     .withTemplateParameters({ id: artist })
     .getResource((error, results) => {
+
       // WILL USE artist.name, artist.hometown, artist.biography, artist._links.thumbnail.href (for img src), and maybe birthday
       // console.log('1 - getResource: ', results)
 
       // callback with results
       cb(results);
     });
-
 }
 

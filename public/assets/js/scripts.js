@@ -1,37 +1,38 @@
 
 $(document).ready(() => {
 
-    // Load listbox
+    // Load listbox on home page, load dropdown button on artist view
     loadArtists();
 
     // Dropdown Toggle for Art View page button
     $('.dropdown-toggle').dropdown();
 
-    // Submit button function ('/')
+    // Submit button function on index
     $('#submitbutton').on('click', (evt) => {
-        // evt.preventDefault();
-        // set id to clicked data-id
+
+        // Set id to clicked data-id
         var artist = $('#selector').find(':selected').attr('data-id');
         
         // if data-id exists (option added dynamically)
         if (artist) {
-
-            // call route to pull artists from db table
-            // $.get("/api/artist/" + artist);
             
-            // got to artist page - calls api/db for info
+            // Go to artist page - calls api/db for info
             location.assign('api/artist/'+ artist);
         }
     });
 
-    // Admin Login Button function ('/admin')
+    // Admin Login Button function from adminlogin
     $('#loginbutton').on('click', (evt) => {
         evt.preventDefault();
+        
         var username = $('#username').val().trim();
         var enteredPW = $('#password').val().trim();
         
+        // if no user name, display alert
         if (!username || !enteredPW) {
             $('#no-password-alert').show();
+
+        // else post to api (for pw check)
         } else {
             $.ajax({
                 url: '/api/admin/',
@@ -43,8 +44,12 @@ $(document).ready(() => {
                 dataType: 'json'
 
             }).then((result) => {
+
+                // if return valid, permit entry
                 if(result.valid === true) {
                     window.location.href = '/admin/entry';
+
+                // else, throw alert u &| pw incorrect
                 } else {
                     $('#wrong-password-alert').show();
                 }
@@ -52,14 +57,22 @@ $(document).ready(() => {
         }
     });
 
-    // Modal JS for artist page (/artist)
+    // Modal JS for artist view page (when user clicks on artist's work)
     $('img.port-img').on('click', (evt) => {
         evt.preventDefault();
+
+        // set modal variables
         var modal = $('#artModal');
         var modalImg = $('#modalImg')
         var caption = $('#caption');
+
+        // display modal
         $('.modal').css('display', 'block');
+
+        // set img src to image clicked src
         modalImg.attr('src', evt.currentTarget.src);
+
+        // add caption
         caption.html('<h1>' + $(evt.currentTarget).attr('alt') + 
         '</h1><br />' + '<h4> Currently showing at: <h4>') 
         
@@ -68,6 +81,7 @@ $(document).ready(() => {
             caption.append('<h2>' + $(evt.currentTarget).attr('data-m') + '<h2>');
         }
 
+        // append clicked img attributes to caption 
         caption.append('<h3>' + $(evt.currentTarget).attr('data-m-street') + '<br />' + 
         $(evt.currentTarget).attr('data-m-city') + ', ' + 
         $(evt.currentTarget).attr('data-m-state') + '  ' + 
@@ -90,7 +104,7 @@ $(document).ready(() => {
     });
 
 
-    // Submit new art button function
+    // Submit new art button function from admin - admintextentry
     $('#submit-new-art-button').on('click', (evt) => {
         evt.preventDefault();
         var title = $('#art_title').val().trim();
@@ -104,11 +118,13 @@ $(document).ready(() => {
         var phone = $('#phone').val().trim();
         var website = $('#website').val().trim();
 
+        // if any fields aren't complete, display alert
         if (!title || !artist || !url || !museum || !address || !city || !state || !zip || !phone || !website) {
             $('#incomplete-alert').css('display', 'inherit');
             return;
         }
 
+        // create newArt obj
         var newArt = {
             art_title: title,
             artist_name: artist,
@@ -122,15 +138,18 @@ $(document).ready(() => {
             website: website
         }
 
+        // call submitArt function
         submitArt(newArt);
 
     });
 
+    // home button function on artist view page
     $('#home-button').on('click', evt => {
         evt.preventDefault();
         window.location.href='/';
     });
 
+    // admin logout button from admintextentry
     $('#admin-logout').on('click', (evt) => {
         evt.preventDefault();
         window.location.href='/admin';

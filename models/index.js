@@ -1,3 +1,5 @@
+// Setup models with reqs
+
 'use strict';
 
 var fs = require('fs');
