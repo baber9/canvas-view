@@ -12,14 +12,12 @@
 
              
         {{!-- Single Button Nav --}}
-        <div class="btn-group">
+        <div class="btn-group" id="dropdown-group">
             <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Artists <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">And another</a></li>
+            <ul class="dropdown-menu" id="dropdown-button">
+                {{!-- JQuery from script.js will load li's --}}
             </ul>
         </div>
         <button type="button" id="home-button" class="btn btn-primary btn-lg">Home</button>
@@ -29,7 +27,7 @@
         
         {{!-- LOAD HEADER INFO ABOUT CURRENT ARTIST --}}
         <img src="{{artist.api._links.thumbnail.href}}" alt="{{artist.api.name}}">
-        <h1>{{artist.api.name}}</h1>
+        <h1 class="artview-artist-name">{{artist.api.name}}</h1>
         <h3>{{artist.api.hometown}}</h3>
         <h3>{{artist.api.birthday}} - {{artist.api.deathday}}</h3>
     
