@@ -4,6 +4,7 @@ body {
 
 div.page-header {
     text-align: center;
+    border-color: #1f335b;
 }
 
 div.page-header>img {
@@ -133,10 +134,27 @@ img.port-img:hover {
 
   div.btn-group {
     float: left;
-    margin-top: 30px;
-    position: absolute;
+    position: relative;
+    display: inline-block;
+    margin: 30px;
   }
 
   div.btn-group>button {
       background-color: #1f335b;
+  }
+
+  button#home-button {
+      float: right;
+      position: relative;
+      display: inline-block;
+      margin: 30px;
+      background-color: #1f335b;
+  }
+
+  p.artist-bio {
+      font-size: 18;
+  }
+
+  hr {
+      border-color: #1f335b;
   }
