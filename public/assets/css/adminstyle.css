@@ -16,6 +16,10 @@ body {
   margin-top: 10%;
 }
 
+input {
+  color: black;
+}
+
 #loginblock {
   margin-top: 10%;
 }
@@ -60,4 +64,8 @@ body {
   color: #213759;
   text-align: center;
   font-size: 10px;
+}
+
+form#adminstuff>div.form-group {
+  margin: 30px;
 }

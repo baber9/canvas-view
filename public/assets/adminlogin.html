@@ -7,16 +7,18 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="../assets/css/adminstyle.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   </head>
   <body>
 
-      <div id="topblock">
-        <header>Canvas View</header>
-      </div>
+    <div id="topblock">
+      <header>Canvas View</header>
+    </div>
 
 
     <div id="adminlogin">
@@ -24,28 +26,32 @@
         <h1>Administrator Login</h1>
         <form id="emailpassword">
           <ul class="list-unstyled">
-          <li><label for="email">Username:</label></li>
-        <li><input type="text" id="username" name="username"></li>
+            <li><label for="email">Username:</label></li>
+            <li><input type="text" id="username" name="username"></li>
 
-        <li><label for="password">Password:</label></li>
-        <li><input type="password" id="password" name="password"></li>
-      </ul>
+            <li><label for="password">Password:</label></li>
+            <li><input type="password" id="password" name="password"></li>
+          </ul>
+          <button class="btn btn-default" type="submit" id="loginbutton">
+              Log In
+          </button>
         </form>
-        <button type="submit" id="loginbutton">
-          Log In
-        </button>
+        
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="col-lg-12" id="lowblock">
-        <div id="footertext">
-          Copyright Canvas View 2018
-        </div>
-        <div id="adminlink">
-          <a href="/admin">admin</a>
-        </div>
-    </footer>
+
+
+
+  <footer class="footer">
+    <div class="col-lg-12" id="lowblock">
+      <div id="footertext">
+        Copyright Canvas View 2018
+      </div>
+      <div id="adminlink">
+        <a href="/admin">admin</a>
+      </div>
+  </footer>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
