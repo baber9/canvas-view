@@ -1,3 +1,7 @@
+body {
+  background: tan;
+}
+
 div.page-header {
     text-align: center;
 }
@@ -70,7 +74,7 @@ img.port-img:hover {
 }
 
 /* Add Animation */
-.modal-content, #caption {    
+.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -78,12 +82,12 @@ img.port-img:hover {
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform: scale(0)} 
+    from {-webkit-transform: scale(0)}
     to {-webkit-transform: scale(1)}
 }
 
 @keyframes zoom {
-    from {transform: scale(0.1)} 
+    from {transform: scale(0.1)}
     to {transform: scale(1)}
 }
 
