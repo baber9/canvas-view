@@ -15,7 +15,6 @@ $(document).ready(() => {
         
         // if data-id exists (option added dynamically)
         if (artist) {
-            console.log(artist);
 
             // call route to pull artists from db table
             // $.get("/api/artist/" + artist);
