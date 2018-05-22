@@ -7,6 +7,7 @@ module.exports = (app) => {
     
     // home page route
     app.get('/', (req, res) => {
+        login.setLoggedIn(false);
         res.sendFile(path.join(__dirname, "../public/assets/index.html"));
     });
 

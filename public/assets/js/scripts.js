@@ -129,6 +129,11 @@ $(document).ready(() => {
         submitArt(newArt);
 
     });
+
+    $('#admin-logout').on('click', (evt) => {
+        evt.preventDefault();
+        window.location.href='/';
+    });
     
     // FUNCTION to submit new art (by admin)
     function submitArt(Art) {
